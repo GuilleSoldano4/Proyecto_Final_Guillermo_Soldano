@@ -1,0 +1,21 @@
+{% extends 'productos/base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <p class="fs-5 fst-italic">¿Confirma eliminar "{{ object.nombre }}"?</p>
+                    <form method="GET">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger me-2">Confirmar</button>
+                        <a href="{% url 'productos:productos_list' %}" class="btn btn-secondary">Cancelar</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock content %}
